@@ -7,9 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: ./.github/actions/git-mirror-action
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        with:
-          source-repo: "git@github.com:supes1100/circlici-test.git"
-          destination-repo: "git@github.com:TheTipsyTurtle/test_circleCI.git"
+      - name: trying to get
+        uses: ./.github/actions/git-mirror-action
+          env:
+            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          with:
+            source-repo: "git@github.com:supes1100/circlici-test.git"
+            destination-repo: "git@github.com:TheTipsyTurtle/test_circleCI.git"
