@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: trying to get
-        uses: ./.github/actions/git-mirror-action
+        uses: ./.github/actions/git-mirror-action@v1.0.1
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         with:
