@@ -11,6 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: entrypoint
-        run: /entrypoint.sh
+        run: /home/runner/work/circlici-test/circlici-test/.github/workflows/entrypoint.sh
       - name: git-mirror
-        run: /git-mirror.sh
+        run: /home/runner/work/circlici-test/circlici-test/.github/workflows/git-mirror.sh
