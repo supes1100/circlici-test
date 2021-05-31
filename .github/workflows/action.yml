@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: git-mirror
-        uses: TheTipsyTurtle/git-mirror-action@v1.0.1
+        uses: wearerequired/git-mirror-action@v1.0.1
         with:
           source-repo: git@github.com:supes1100/circlici-test.git
-          destination-repo: git@github.com:TheTipsyTurtle/test_circleCI.git
+          destination-repo: git@github.com:TheTipsyTurtle/circlecitest2.git
