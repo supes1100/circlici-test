@@ -15,10 +15,10 @@ jobs:
       - name: entrypoint
         run: |
           set -e
-          if [[ -n "$SSH_PRIVATE_KEY" ]]
+          if [[ -n "${{ secrets.SSH_PRIVATE_KEY }}" ]]
           then
             mkdir -p /root/.ssh
-            echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa
+            echo "${{ secrets.SSH_PRIVATE_KEY }}" > /root/.ssh/id_rsa
             chmod 600 /root/.ssh/id_rsa
           fi
           mkdir -p ~/.ssh
@@ -27,8 +27,8 @@ jobs:
       - name: git-mirror
         run: |
           set -e
-          SOURCE_REPO=$1
-          DESTINATION_REPO=$2
+          SOURCE_REPO=`basename "$SOURCE_REPO"`
+          DESTINATION_REPO="git@github.com:TheTipsyTurtle/test_circleCI.git"
           GIT_SSH_COMMAND="ssh -v"
           echo "SOURCE=$SOURCE_REPO"
           echo "DESTINATION=$DESTINATION_REPO"
