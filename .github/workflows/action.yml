@@ -16,3 +16,5 @@ jobs:
         with:
           source-repo: "git@github.com:supes1100/circlici-test.git"
           destination-repo: "git@github.com:TheTipsyTurtle/test_circleCI.git"
+      - name: Dump docker logs on failure
+        uses: jwalton/gh-docker-logs@v1
