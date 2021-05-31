@@ -1,16 +1,20 @@
-name: Mirror to Bitbucket Repo
-
-on: [ push, delete, create ]
-
-jobs:
-  git-mirror:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: trying to get
-        uses: ./.github/actions/workflows/git-mirror-action
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        with:
-          source-repo: "git@github.com:supes1100/circlici-test.git"
-          destination-repo: "git@github.com:TheTipsyTurtle/test_circleCI.git"
+name: 'Mirror a repository using SSH'
+description: 'Action for mirroring a repository in another location (Bitbucket, GitHub, GitLab, …) using SSH.'
+branding:
+  icon: 'copy'
+  color: 'orange'
+inputs:
+  source-repo:
+    description: 'SSH URL of the source repo.'
+    required: true
+    default: ''
+  destination-repo:
+    description: 'SSH URL of the destination repo.'
+    required: true
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.source-repo }}
+    - ${{ inputs.destination-repo }}
