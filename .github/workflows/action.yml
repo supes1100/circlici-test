@@ -17,12 +17,15 @@ jobs:
           set -e
           if [[ -n "${{ secrets.SSH_PRIVATE_KEY }}" ]]
           then
-            sudo mkdir -p /root/.ssh
-            sudo echo "${{ secrets.SSH_PRIVATE_KEY }}" > /root/.ssh/id_rsa
-            sudo chmod 600 /root/.ssh/id_rsa
+            cd /root/
+            pwd
+            mkdir -p .ssh
+            echo "${{ secrets.SSH_PRIVATE_KEY }}" > /id_rsa
+            chmod 600 /id_rsa
           fi
-          sudo mkdir -p ~/.ssh
-          sudo cp /root/.ssh/* ~/.ssh/ 2> /dev/null || true
+          cd ..
+          mkdir -p ~/.ssh
+          cp /root/.ssh/* ~/.ssh/ 2> /dev/null || true
           
       - name: git-mirror
         run: |
