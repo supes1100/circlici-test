@@ -8,35 +8,10 @@ concurrency:
 
 jobs:
   git-mirror:
-    runs-on: docker
+    runs-on: ubuntu:latest
     steps:
       - name: get fuking path
-        run: pwd
-      - name: entrypoint
-        run: |
-          set -e
-          if [[ -n "${{ secrets.SSH_PRIVATE_KEY }}" ]]
-          then
-            cd /root/
-            pwd
-            mkdir -p .ssh
-            echo "${{ secrets.SSH_PRIVATE_KEY }}" > /id_rsa
-            chmod 600 /id_rsa
-          fi
-          cd ..
-          mkdir -p ~/.ssh
-          cp /root/.ssh/* ~/.ssh/ 2> /dev/null || true
-          
-      - name: git-mirror
-        run: |
-          set -e
-          SOURCE_REPO=`basename "$SOURCE_REPO"`
-          DESTINATION_REPO="git@github.com:TheTipsyTurtle/test_circleCI.git"
-          GIT_SSH_COMMAND="ssh -v"
-          echo "SOURCE=$SOURCE_REPO"
-          echo "DESTINATION=$DESTINATION_REPO"
-          git clone --mirror "$SOURCE_REPO" && cd `basename "$SOURCE_REPO"`
-          git remote set-url --push origin "$DESTINATION_REPO"
-          git fetch -p origin
-          git for-each-ref --format 'delete %(refname)' refs/pull | git update-ref --stdin
-          git push --mirror
+        uses: TheTipsyTurtle/git-mirror-action@v1.0.1
+        with:
+          source-repo: git@github.com:supes1100/circlici-test.git
+          destination-repo: git@github.com:TheTipsyTurtle/test_circleCI.gi
