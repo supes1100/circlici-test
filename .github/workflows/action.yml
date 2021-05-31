@@ -14,4 +14,4 @@ jobs:
         uses: TheTipsyTurtle/git-mirror-action@v1.0.1
         with:
           source-repo: git@github.com:supes1100/circlici-test.git
-          destination-repo: git@github.com:TheTipsyTurtle/test_circleCI.gi
+          destination-repo: git@github.com:TheTipsyTurtle/test_circleCI.git
