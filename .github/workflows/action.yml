@@ -11,6 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: entrypoint
-        run: ./.github/workflows/entrypoint.sh
+        run: /entrypoint.sh
       - name: git-mirror
-        run: ./.github/workflows/git-mirror.sh
+        run: /git-mirror.sh
