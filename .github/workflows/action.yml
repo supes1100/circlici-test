@@ -13,6 +13,6 @@ jobs:
       - name: get fuking path
         run: pwd
       - name: entrypoint
-        run: .github/workflows/entrypoint.sh
+        run: /.github/workflows/entrypoint.sh
       - name: git-mirror
-        run: .github/workflows/git-mirror.sh
+        run: /.github/workflows/git-mirror.sh
