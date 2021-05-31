@@ -8,7 +8,7 @@ concurrency:
 
 jobs:
   git-mirror:
-    runs-on: ubuntu-latest
+    runs-on: docker
     steps:
       - name: get fuking path
         run: pwd
