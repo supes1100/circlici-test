@@ -10,7 +10,9 @@ jobs:
   git-mirror:
     runs-on: ubuntu-latest
     steps:
+      - name: get fuking path
+        run: pwd
       - name: entrypoint
-        run: /home/runner/work/circlici-test/circlici-test/.github/workflows/entrypoint.sh
+        run: .github/workflows/entrypoint.sh
       - name: git-mirror
-        run: /home/runner/work/circlici-test/circlici-test/.github/workflows/git-mirror.sh
+        run: .github/workflows/git-mirror.sh
