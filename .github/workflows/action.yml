@@ -14,5 +14,7 @@ jobs:
         run: pwd
       - name: entrypoint
         run: /.github/workflows/entrypoint.sh
+        shell: bash
       - name: git-mirror
         run: /.github/workflows/git-mirror.sh
+        shell: bash
