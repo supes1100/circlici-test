@@ -23,4 +23,4 @@ jobs:
           REMOTE: git@github.com:TheTipsyTurtle/circlecitest3.git
           GIT_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           GIT_SSH_NO_VERIFY_HOST: "true"
-          PUSH_ALL_REFS: "false 
+          PUSH_ALL_REFS: "false"
