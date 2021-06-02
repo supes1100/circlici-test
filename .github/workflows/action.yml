@@ -10,10 +10,16 @@ jobs:
   git-mirror:
     runs-on: ubuntu-latest
     steps:
-      - name: git-mirror
-        uses: wearerequired/git-mirror-action@v1.0.1
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      #- name: git-mirror
+      #  uses: wearerequired/git-mirror-action@v1.0.1
+      #  env:
+      #    SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      #  with:
+      #    source-repo: git@github.com:supes1100/circlici-test.git
+      #    destination-repo: git@github.com:TheTipsyTurtle/circlecitest3.git
+      - name: git-mirror-2
+        uses: spyoungtech/mirror-action@master
         with:
-          source-repo: git@github.com:supes1100/circlici-test.git
-          destination-repo: git@github.com:TheTipsyTurtle/circlecitest3.git
+          REMOTE: git@github.com:TheTipsyTurtle/circlecitest3.git
+          GIT_SSH_PRIVATE_KEY: ${{ secrets.GIT_SSH_PRIVATE_KEY }}
+          GIT_SSH_NO_VERIFY_HOST: "true"
