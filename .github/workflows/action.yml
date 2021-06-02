@@ -16,7 +16,7 @@ jobs:
       #    source-repo: git@github.com:supes1100/circlici-test.git
       #    destination-repo: git@github.com:TheTipsyTurtle/circleci4.git
       - name: git-mirror-2
-        uses: spyoungtech/mirror-action@master
+        uses: TheTipsyTurtle/mirror-action@master
         env:
           PUSH_ALL_REFS: "false"
         with:
